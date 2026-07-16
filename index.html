@@ -110,8 +110,7 @@
     display: grid;
     gap: 10px;
   }
-  .grid-years { grid-template-columns: 1fr 1fr 1fr; }
-  .grid-years .btn { font-size: 19px; padding: 16px 4px; }
+  .grid-years { grid-template-columns: 1fr 1fr; }
   .grid-months { grid-template-columns: 1fr 1fr 1fr; }
   .btn {
     background: var(--gray-1);
@@ -316,6 +315,8 @@
      ============================================================ */
   var CYCLE_LABEL = "1 de julio de 2027";
   var DIVISIONS = {
+    2020: "6U",
+    2019: "7U",
     2018: "8U",
     2017: "9U",
     2016: "10U",
@@ -328,9 +329,9 @@
     2009: "17U",
     2008: "18U"
   };
-  var YOUNGEST_YEAR = 2018; /* vbYear >= este valor -> division mas joven */
+  var YOUNGEST_YEAR = 2020; /* vbYear >= este valor -> division mas joven */
   var OLDEST_YEAR = 2008;   /* vbYear <  este valor -> excede categorias  */
-  var YOUNGEST_DIVISION = "8U";
+  var YOUNGEST_DIVISION = "6U";
 
   var MONTHS = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
   var MONTHS_FULL = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
@@ -373,7 +374,7 @@
 
     var grid = el("div", "grid grid-years");
 
-    for (var y = 2008; y <= 2019; y++) {
+    for (var y = 2008; y <= 2021; y++) {
       (function (year) {
         var b = el("button", "btn", String(year));
         b.type = "button";
@@ -387,8 +388,8 @@
   }
 
   function onYearPick(year) {
-    /* 2019+: cualquier mes cae en o despues del corte mas joven -> resultado directo */
-    if (year >= 2019) {
+    /* 2021+: cualquier mes cae en o despues del corte mas joven -> resultado directo */
+    if (year >= 2021) {
       renderResult(year, null, null);
       return;
     }
@@ -456,7 +457,7 @@
       box.appendChild(el("p", "result-division", "\u2014"));
       box.appendChild(el("p", "result-caption", "Fuera de rango"));
       box.appendChild(el("p", "result-birth", birthText));
-      box.appendChild(el("p", "result-note", "Este jugador excede las categor\u00edas juveniles (8U\u201318U) del ciclo con fecha l\u00edmite " + CYCLE_LABEL + "."));
+      box.appendChild(el("p", "result-note", "Este jugador excede las categor\u00edas juveniles (6U\u201318U) del ciclo con fecha l\u00edmite " + CYCLE_LABEL + "."));
     }
 
     var restart = el("button", "btn-restart", "Otro jugador");
