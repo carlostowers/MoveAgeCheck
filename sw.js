@@ -1,4 +1,4 @@
-var CACHE_NAME = "move-age-check-v1";
+var CACHE_NAME = "move-verifica-categoria-v2";
 var FILES = ["./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", function (event) {

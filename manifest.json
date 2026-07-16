@@ -1,6 +1,6 @@
 {
-  "name": "MOVE Age Check",
-  "short_name": "Age Check",
+  "name": "MOVE Verifica tu Categoría",
+  "short_name": "Categoría",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
